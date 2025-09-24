@@ -1,6 +1,6 @@
 import style from './Column.module.css';
 import Cell from "../Cell/Cell.tsx";
-import type {CellOwner} from "../../types/CellOwner.ts";
+import type {CellOwner} from "../../../types/cellOwner.ts";
 
 interface ColumnProps {
     cells: CellOwner[];

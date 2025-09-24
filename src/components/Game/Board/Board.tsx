@@ -1,7 +1,7 @@
 import style from './Board.module.css';
-import Column from '../Column/Column';
-import type {CellOwner} from "../../types/CellOwner.ts";
-import {rows, cols} from "../../config/constants.ts";
+import Column from '../Column/Column.tsx';
+import type {CellOwner} from "../../../types/cellOwner.ts";
+import {rows, cols} from "../../../config/constants.ts";
 
 interface BoardProps {
     grid: CellOwner[][];

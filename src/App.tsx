@@ -1,34 +1,19 @@
-import Board from "./components/Board/Board.tsx";
 import {useState} from "react";
-import { rows, cols } from "./config/constants.ts";
-import type {CellOwner} from "./types/CellOwner.ts";
-
-// TODO: Variable grid size (?)
-
-// @ts-ignore : currently unused on purpose
-const getEmptyGrid = (): CellOwner[][] =>
-    Array(rows)
-        .fill(null)
-        .map(() => Array(cols)
-            .fill("NN"));
-
-const getCustomGrid = (): CellOwner[][] => {
-  return [
-    ["NN", "NN", "NN", "NN", "NN", "NN", "NN"],
-    ["NN", "NN", "NN", "NN", "NN", "NN", "NN"],
-    ["NN", "NN", "NN", "NN", "NN", "NN", "NN"],
-    ["NN", "NN", "NN", "NN", "NN", "NN", "NN"],
-    ["NN", "NN", "NN", "NN", "NN", "NN", "NN"],
-    ["NN", "NN", "NN", "NN", "NN", "NN", "NN"],
-  ];
-};
+import StartPage from "./pages/StartPage.tsx";
+import GamePage from "./pages/GamePage.tsx";
+import ResultsPage from "./pages/ResultsPage.tsx";
+import type {pageType} from "./types/pageType.ts";
 
 function App() {
-  const [grid, setGrid] = useState(getCustomGrid());
+    const [page, setPage] = useState<pageType>("START");
 
-  return (
-      <Board grid={grid}/>
-  )
+    return (
+        <div>
+            {page === "START"   && <StartPage   onStart={()   => setPage("GAME")}   />}
+            {page === "GAME"    && <GamePage    onFinish={()  => setPage("RESULTS")}/>}
+            {page === "RESULTS" && <ResultsPage onRestart={() => setPage("START")}  />}
+        </div>
+    )
 }
 
 export default App
