@@ -10,7 +10,7 @@ export default function Cell(props: CellProps) {
     const [owner, setOwner] = useState(props.owner);
 
     const handleClick = () => {
-        const states = ['P1', 'P2', 'NN'];
+        const states: CellOwner[] = ['P1', 'P2', 'NN'];
         const nextIndex = (states.indexOf(owner) + 1) % states.length;
         setOwner(states[nextIndex]);
     };

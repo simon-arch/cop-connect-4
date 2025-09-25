@@ -1,5 +1,5 @@
-import Button from "../components/Page/Button/Button.tsx";
-import Title from "../components/Page/Title/Title.tsx";
+import Button from "../components/ui/Button/Button.tsx";
+import Title from "../components/ui/Title/Title.tsx";
 
 interface ResultsPageProps {
     onRestart: () => void;

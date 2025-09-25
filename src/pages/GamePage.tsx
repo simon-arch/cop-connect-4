@@ -1,9 +1,9 @@
-import Button from "../components/Page/Button/Button.tsx";
-import Title from "../components/Page/Title/Title.tsx";
-import Board from "../components/Game/Board/Board.tsx";
-import {cols, rows} from "../config/constants.ts";
+import Button from "../components/ui/Button/Button.tsx";
+import Title from "../components/ui/Title/Title.tsx";
+import Board from "../components/game/Board/Board.tsx";
 import type {CellOwner} from "../types/cellOwner.ts";
 import {useState} from "react";
+import {rows, cols} from "../constants.ts";
 
 interface GamePageProps {
     onFinish: () => void;
