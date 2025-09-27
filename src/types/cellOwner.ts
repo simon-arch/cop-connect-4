@@ -1,0 +1,1 @@
+export type CellOwner = "P1" | "P2" | null;
