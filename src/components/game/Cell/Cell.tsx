@@ -6,5 +6,5 @@ interface CellProps {
 }
 
 export default function Cell(props: CellProps) {
-    return <div className={style.cell}>{props.owner}</div>;
+    return <div className={`${style.cell} ${props.owner && style[props.owner!]}`}/>;
 }

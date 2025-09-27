@@ -1,16 +1,14 @@
 import style from './Board.module.css';
 import Column from '../Column/Column.tsx';
-import type {CellOwner} from "../../../types/cellOwner.ts";
+import {useGrid} from "../../../hooks/useGrid.tsx";
 
-interface BoardProps {
-    grid: CellOwner[][];
-}
+export default function Board() {
+    const {grid} = useGrid();
 
-export default function Board(props: BoardProps) {
     return (
         <div className={style.board}>
-            {props.grid.map((cells, colIndex) => (
-                <Column key={colIndex} cells={cells}/>
+            {grid.map((cells, colIndex) => (
+                <Column key={colIndex} index={colIndex} cells={cells}/>
             ))}
         </div>
     );
