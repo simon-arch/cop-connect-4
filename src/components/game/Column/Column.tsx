@@ -11,7 +11,7 @@ interface ColumnProps {
 }
 
 export default function Column(props: ColumnProps) {
-    const {append} = useGrid();
+    const {append, ended} = useGrid();
     const {player} = usePlayer();
     const cells = [...props.cells];
 
@@ -23,8 +23,10 @@ export default function Column(props: ColumnProps) {
         append(props.index, player);
     }
 
+    const playable = !ended && !reversed.every(cell => cell !== null);
+
     return (
-        <div className={style.column} onClick={onClick}>
+        <div className={`${style.column} ${playable && style.playable} ${player && style[player]}`} onClick={onClick}>
             {reversed.map((cell: CellOwner, row: number) => (
                 <Cell owner={cell} key={row.toString()}/>
             ))}

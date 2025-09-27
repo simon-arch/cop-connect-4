@@ -5,6 +5,6 @@ interface CellProps {
     owner: CellOwner;
 }
 
-export default function Cell(props: CellProps) {
-    return <div className={`${style.cell} ${props.owner && style[props.owner!]}`}/>;
+export default function Cell({owner}: CellProps) {
+    return <div className={`${style.cell} ${style.animated} ${owner && style[owner]}`}/>;
 }

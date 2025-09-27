@@ -17,7 +17,7 @@ const getCustomGrid = (): CellOwner[][] => {
         [], // col-4
         ["P2"], // col-5
         ["P1", "P2", "P2"], // col-6
-        ["P1", "P1", "P1", "P2"], // col-7
+        ["P1", "P1", "P1"], // col-7
     ];
 };
 
@@ -63,9 +63,12 @@ const findWinner = (grid: CellOwner[][]) => {
 
 const GridProvider = ({children, onEnd}: GridProviderProps) => {
     const [grid, setGrid] = useState(getCustomGrid());
+    const [ended, setEnded] = useState(false);
     const {next} = usePlayer();
 
     const append = useCallback((colIndex: number, owner: CellOwner) => {
+        if (ended) return;
+
         const modified = grid.map((col, index) => {
             if (index == colIndex && col.length < rows) {
                 col.push(owner);
@@ -76,12 +79,14 @@ const GridProvider = ({children, onEnd}: GridProviderProps) => {
         setGrid(modified);
 
         const winner = findWinner(modified);
-        if (winner !== undefined)
+        if (winner !== undefined) {
             onEnd(winner);
-    }, [])
+            setEnded(true);
+        }
+    }, [ended])
 
     return (
-        <GridContext.Provider value={{append, grid}}>
+        <GridContext.Provider value={{append, grid, ended}}>
             {children}
         </GridContext.Provider>
     )
