@@ -10,7 +10,7 @@ export default function Board(props: BoardProps) {
     return (
         <div className={style.board}>
             {props.grid.map((cells, colIndex) => (
-                <Column key={colIndex} cells={cells}/>
+                <Column key={colIndex} index={colIndex} cells={cells}/>
             ))}
         </div>
     );
