@@ -3,6 +3,7 @@ import type {CellOwner} from "../types/cellOwner.ts";
 
 interface GridContextType {
     append: (colIndex: number, owner: CellOwner) => void
+    grid: Readonly<CellOwner[][]>
 }
 
 export const GridContext = createContext<GridContextType | null>(null)

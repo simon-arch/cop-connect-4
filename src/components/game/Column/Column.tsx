@@ -3,6 +3,7 @@ import Cell from "../Cell/Cell.tsx";
 import type {CellOwner} from "../../../types/cellOwner.ts";
 import {rows} from "../../../constants.ts";
 import {useGrid} from "../../../hooks/useGrid.tsx";
+import {usePlayer} from "../../../hooks/usePlayer.tsx";
 
 interface ColumnProps {
     index: number;
@@ -10,7 +11,8 @@ interface ColumnProps {
 }
 
 export default function Column(props: ColumnProps) {
-    const grid = useGrid();
+    const {append} = useGrid();
+    const {player} = usePlayer();
     const cells = [...props.cells];
 
     while (cells.length < rows)
@@ -18,7 +20,7 @@ export default function Column(props: ColumnProps) {
     const reversed = [...cells].reverse();
 
     const onClick = () => {
-        grid.append(props.index, "P1");
+        append(props.index, player);
     }
 
     return (
