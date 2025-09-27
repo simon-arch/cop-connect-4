@@ -73,10 +73,9 @@ const GridProvider = ({children, onEnd}: GridProviderProps) => {
             }
             return col;
         })
-
         setGrid(modified);
 
-        const winner = findWinner(grid)
+        const winner = findWinner(modified);
         if (winner !== undefined)
             onEnd(winner);
     }, [])

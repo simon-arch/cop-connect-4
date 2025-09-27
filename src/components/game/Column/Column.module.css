@@ -1,9 +1,14 @@
 .column {
     display: flex;
     flex-direction: column;
-    margin: 0 0.1rem;
+    padding: 0 0.1rem;
 
     &:hover {
         background-color: darkred;
     }
+}
+
+.column:hover > *:first-child {
+    background-image: url("src/assets/disc.png");
+    background-size: cover;
 }

@@ -18,8 +18,11 @@
 
 @keyframes slide {
     0% {
-        transform: translateY(-200%);
+        transform: translateY(-550%);
         opacity: 0;
+    }
+    1% {
+        opacity: 1;
     }
     100% {
         transform: translateY(0);
