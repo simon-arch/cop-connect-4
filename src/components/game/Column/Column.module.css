@@ -2,13 +2,31 @@
     display: flex;
     flex-direction: column;
     padding: 0 0.1rem;
-
-    &:hover {
-        background-color: darkred;
-    }
 }
 
-.column:hover > *:first-child {
+.column.playable.P1:hover {
+    background: linear-gradient(
+            to bottom,
+            rgba(255, 165, 0, 0.5) 0%,
+            rgba(255, 165, 0, 0.4) 20%,
+            rgba(255, 165, 0, 0.2) 35%,
+            rgba(255, 165, 0, 0.1) 40%,
+            transparent 25%
+    );
+}
+
+.column.playable.P2:hover {
+    background: linear-gradient(
+            to bottom,
+            rgba(255, 0, 0, 0.6) 0%,
+            rgba(255, 0, 0, 0.4) 20%,
+            rgba(255, 0, 0, 0.2) 35%,
+            rgba(255, 0, 0, 0.1) 40%,
+            transparent 25%
+    );
+}
+
+.column.playable:hover > *:first-child {
     background-image: url("src/assets/disc.png");
     background-size: cover;
 }

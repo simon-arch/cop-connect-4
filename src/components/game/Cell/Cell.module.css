@@ -30,12 +30,24 @@
     }
 }
 
+@keyframes appear {
+    0%   { opacity: 0; }
+    1%   { opacity: 1; }
+    100% { opacity: 1; }
+}
+
 .cell.P1::before {
     filter: sepia(1) hue-rotate(-10deg) saturate(7);
-    animation: slide 0.5s ease forwards;
 }
 
 .cell.P2::before {
     filter: sepia(1) hue-rotate(-50deg) saturate(7);
+}
+
+.cell.P1::before, .cell.P2::before {
+    animation: appear 0.5s ease forwards;
+}
+
+.cell.P1.animated::before, .cell.P2.animated::before {
     animation: slide 0.5s ease forwards;
 }

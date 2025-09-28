@@ -1,0 +1,26 @@
+import style from './Modal.module.css';
+import type {ReactNode} from "react";
+import {createPortal} from "react-dom";
+
+interface ModalProps {
+    children: ReactNode;
+    onClose: () => void;
+}
+
+const root = document.getElementById('portal-root');
+
+const Modal = ({children, onClose}: ModalProps) => {
+    if (!root) return null;
+
+    return createPortal(
+        <div className={style.Overlay} onClick={onClose}>
+            <div className={style.Content} onClick={(e) => e.stopPropagation()}>
+                <button className={style.Button} onClick={onClose}>✖</button>
+                {children}
+            </div>
+        </div>,
+        root
+    );
+};
+
+export default Modal;
