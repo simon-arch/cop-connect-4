@@ -1,9 +1,9 @@
 import style from './Column.module.css';
 import Cell from "../Cell/Cell.tsx";
 import type {CellOwner} from "../../../types/cellOwner.ts";
-import {rows} from "../../../constants.ts";
 import {useGrid} from "../../../hooks/useGrid.tsx";
 import {usePlayer} from "../../../hooks/usePlayer.tsx";
+import {useSettings} from "../../../hooks/useSettings.tsx";
 
 interface ColumnProps {
     index: number;
@@ -12,10 +12,11 @@ interface ColumnProps {
 
 export default function Column(props: ColumnProps) {
     const {append, ended} = useGrid();
+    const {settings: {gridRows}} = useSettings();
     const {player} = usePlayer();
-    const cells = [...props.cells];
 
-    while (cells.length < rows)
+    const cells = [...props.cells];
+    while (cells.length < gridRows)
         cells.push(null);
     const reversed = [...cells].reverse();
 

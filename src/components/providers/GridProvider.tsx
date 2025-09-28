@@ -1,34 +1,24 @@
 import {type ReactNode, useCallback, useState} from "react";
 import type {CellOwner} from "../../types/cellOwner.ts";
-import {cols, rows} from "../../constants.ts";
 import {GridContext} from "../../hooks/useGrid.tsx";
 import {usePlayer} from "../../hooks/usePlayer.tsx";
+import {useSettings} from "../../hooks/useSettings.tsx";
 
 interface GridProviderProps {
     children: ReactNode;
     onEnd: (winner: CellOwner) => void;
 }
 
-const getCustomGrid = (): CellOwner[][] => {
-    return [
-        ["P1", "P2"], // col-1
-        [], // col-2
-        ["P1", "P2", "P1", "P2"], // col-3
-        [], // col-4
-        ["P2"], // col-5
-        ["P1", "P2", "P2"], // col-6
-        ["P1", "P1", "P1"], // col-7
-    ];
-};
+const getEmptyGrid = (cols: number): CellOwner[][] => Array.from({length: cols}, () => []);
 
-const getCell = (array: CellOwner[][], col: number, row: number): CellOwner => {
+const getCell = (array: CellOwner[][], col: number, row: number, cols: number, rows: number): CellOwner => {
     if (col < 0 || col >= cols) return null;
     if (row < 0 || row >= rows) return null;
     if (!array[col]) return null;
     return array[col][row] || null;
 }
 
-const findWinner = (grid: CellOwner[][]) => {
+const findWinner = (grid: CellOwner[][], rows: number, cols: number, winSize: number) => {
     const directions = [
     //  [x, y]
         [0, 1],
@@ -39,7 +29,7 @@ const findWinner = (grid: CellOwner[][]) => {
 
     for (let col = 0; col < cols; col++) {
         for (let row = 0; row < rows; row++) {
-            const cell = getCell(grid, col, row);
+            const cell = getCell(grid, col, row, cols, rows);
             if (!cell) continue;
 
             for (const [dx, dy] of directions) {
@@ -47,13 +37,12 @@ const findWinner = (grid: CellOwner[][]) => {
                 let x = col + dx;
                 let y = row + dy;
 
-                while (getCell(grid, x, y) === cell && count < 4) {
+                while (getCell(grid, x, y, cols, rows) === cell && count < winSize) {
                     count++;
                     x += dx;
                     y += dy;
                 }
-
-                if (count === 4) return cell;
+                if (count === winSize) return cell;
             }
         }
     }
@@ -62,15 +51,16 @@ const findWinner = (grid: CellOwner[][]) => {
 }
 
 const GridProvider = ({children, onEnd}: GridProviderProps) => {
-    const [grid, setGrid] = useState(getCustomGrid());
-    const [ended, setEnded] = useState(false);
+    const {settings} = useSettings();
     const {next} = usePlayer();
+    const [grid, setGrid] = useState(getEmptyGrid(settings.gridCols));
+    const [ended, setEnded] = useState(false);
 
     const append = useCallback((colIndex: number, owner: CellOwner) => {
         if (ended) return;
 
         const modified = grid.map((col, index) => {
-            if (index == colIndex && col.length < rows) {
+            if (index == colIndex && col.length < settings.gridRows) {
                 col.push(owner);
                 next();
             }
@@ -78,7 +68,7 @@ const GridProvider = ({children, onEnd}: GridProviderProps) => {
         })
         setGrid(modified);
 
-        const winner = findWinner(modified);
+        const winner = findWinner(modified, settings.gridRows, settings.gridCols, settings.winSize);
         if (winner !== undefined) {
             onEnd(winner);
             setEnded(true);

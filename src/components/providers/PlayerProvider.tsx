@@ -1,13 +1,14 @@
 import {type ReactNode, useCallback, useState} from "react";
 import {PlayerContext} from "../../hooks/usePlayer.tsx";
 import type {CellOwner} from "../../types/cellOwner.ts";
-import {initialPlayer} from "../../constants.ts";
+import {useSettings} from "../../hooks/useSettings.tsx";
 
 interface PlayerProviderProps {
     children: ReactNode;
 }
 
 const PlayerProvider = ({children}: PlayerProviderProps) => {
+    const {settings: {initialPlayer}} = useSettings();
     const [player, setPlayer] = useState<CellOwner>(initialPlayer);
 
     const next = useCallback(() => {

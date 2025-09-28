@@ -10,7 +10,8 @@ const defaultSettings: GameSettings = {
     playAnimations: true,
     gridRows: 6,
     gridCols: 7,
-    winSize: 4
+    winSize: 4,
+    initialPlayer: "P1",
 };
 
 const storageKey = 'game-settings';

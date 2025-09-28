@@ -8,7 +8,8 @@ import Modal from "../components/ui/Modal/Modal.tsx";
 import {useState} from "react";
 
 interface GamePageProps {
-    onFinish: (winner: CellOwner) => void;
+    onFinish: () => void;
+    onRetry: () => void;
 }
 
 const GamePage = (props: GamePageProps) => {
@@ -26,11 +27,15 @@ const GamePage = (props: GamePageProps) => {
     return (
         <GridProvider onEnd={onEnd}>
             <Title>Page - Game [{title}]</Title>
-            <Button onClick={() => props.onFinish(null)}>Finish Game</Button>
+            <Button onClick={props.onFinish}>Finish Game</Button>
             <Board/>
             {modalOpen && (
                 <Modal onClose={() => setModalOpen(false)}>
                     End of the game. {title}!
+                    <div>
+                        <Button onClick={props.onRetry}>Play again</Button>
+                        <Button onClick={props.onFinish}>Finish game</Button>
+                    </div>
                 </Modal>
             )}
         </GridProvider>
