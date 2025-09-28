@@ -13,18 +13,35 @@ const defaultSettings: GameSettings = {
     winSize: 4
 };
 
-const SettingsProvider = ({children}: SettingsProviderProps) => {
-    const [settings, setSettings] = useState<GameSettings>(defaultSettings);
+const storageKey = 'game-settings';
 
-    const update = useCallback((settings: GameSettings) => {
-        console.log(settings);
-    }, [])
+const InitSettings = () => {
+    try {
+        const stored = localStorage.getItem(storageKey);
+        return stored ? JSON.parse(stored) : defaultSettings;
+    } catch (e) {
+        console.error('Error occurred while loading data from localStorage', e);
+        return defaultSettings;
+    }
+}
+
+const SettingsProvider = ({ children }: SettingsProviderProps) => {
+    const [settings, setSettings] = useState<GameSettings>(InitSettings());
+
+    const update = useCallback((newSettings: GameSettings) => {
+        setSettings(newSettings);
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(newSettings));
+        } catch (e) {
+            console.error('Error occurred while saving data to localStorage', e);
+        }
+    }, []);
 
     return (
-        <SettingsContext.Provider value={{settings, update}}>
+        <SettingsContext.Provider value={{ settings, update }}>
             {children}
         </SettingsContext.Provider>
-    )
-}
+    );
+};
 
 export default SettingsProvider;
