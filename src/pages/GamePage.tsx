@@ -30,7 +30,7 @@ const GamePage = (props: GamePageProps) => {
             <Board/>
             {modalOpen && (
                 <Modal onClose={() => setModalOpen(false)}>
-                    {winner ? `${winner} Won!` : "Tie!"}
+                    End of the game. {title}!
                 </Modal>
             )}
         </GridProvider>
