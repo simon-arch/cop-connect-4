@@ -1,7 +1,9 @@
-import type {GameSettings} from "../types/gameSettings.ts";
 import {useSettings} from "../hooks/useSettings.tsx";
-import {Formik, Form, Field, ErrorMessage} from "formik";
+import {Formik, Form} from "formik";
 import {bool, number, object, string} from "yup";
+import Button from "../components/ui/Button/Button.tsx";
+import Input from "../components/ui/Formik/Input/Input.tsx";
+import Select from "../components/ui/Formik/Select/Select.tsx";
 
 const schema = object().shape({
     playAnimations: bool().required('Play Animations is required'),
@@ -35,43 +37,25 @@ const SettingsPage = () => {
 
     return (
         <Formik
-            initialValues={{ playAnimations: settings.playAnimations, gridRows: settings.gridRows, gridCols: settings.gridCols, winSize: settings.winSize, initialPlayer: settings.initialPlayer }}
+            initialValues={settings}
             validationSchema={schema}
-            onSubmit={(values: GameSettings) => {
-                update(values);
-            }}
+            onSubmit={(settings) => update(settings)}
         >
             {() => (
                 <Form>
-                    <div>
-                        <label>Play Animations:</label><br/>
-                        <Field name="playAnimations" type="checkbox" />
-                        <ErrorMessage name="playAnimations" component="div" />
-                    </div>
-                    <div>
-                        <label>Grid Rows:</label><br/>
-                        <Field name="gridRows" type="number" />
-                        <ErrorMessage name="gridRows" component="div" />
-                    </div>
-                    <div>
-                        <label>Grid Columns:</label><br/>
-                        <Field name="gridCols" type="number" />
-                        <ErrorMessage name="gridCols" component="div" />
-                    </div>
-                    <div>
-                        <label>Win Size:</label><br/>
-                        <Field name="winSize" type="number" />
-                        <ErrorMessage name="winSize" component="div" />
-                    </div>
-                    <div>
-                        <label htmlFor="initialPlayer">Starting Player:</label><br/>
-                        <Field as="select" name="initialPlayer">
-                            <option value="P1">P1</option>
-                            <option value="P2">P2</option>
-                        </Field>
-                        <ErrorMessage name="initialPlayer" component="div" />
-                    </div>
-                    <button type="submit">Save</button>
+                    <Input name="playAnimations" label="Play Animations" type="checkbox" />
+                    <Input name="gridRows" label="Grid Rows" type="number" />
+                    <Input name="gridCols" label="Grid Columns" type="number" />
+                    <Input name="winSize" label="Win Size" type="number" />
+                    <Select
+                        name="initialPlayer"
+                        label="Starting Player"
+                        options={[
+                            {value: "P1", label: "P1"},
+                            {value: "P2", label: "P2"},
+                        ]}
+                    />
+                    <Button type="submit">Save</Button>
                 </Form>
             )}
         </Formik>

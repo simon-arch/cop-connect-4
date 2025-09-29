@@ -1,0 +1,80 @@
+.Input div {
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--accent-4);
+}
+
+.Input input {
+    color: var(--text-1);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+
+    height: 2rem;
+    margin: 0;
+    padding: 0 0.875rem;
+
+    outline: none;
+    border: 1px solid var(--bg-4);
+    background-color: var(--bg-3);
+    transition: background-color 0.25s, color 0.25s;
+
+    &::placeholder {
+        color: var(--text-5);
+        opacity: 1;
+    }
+
+    &:hover {
+        border-color: var(--accent-4);
+    }
+
+    &:focus {
+        border-color: var(--accent-3);
+    }
+
+    &:disabled {
+        background-color: var(--bg-2);
+        color: var(--text-4);
+        cursor: not-allowed;
+    }
+}
+
+.Input input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+    cursor: pointer;
+
+    border: 1px solid var(--bg-4);
+    background-color: var(--bg-3);
+    transition: background-color 0.25s, border-color 0.25s;
+
+    display: inline-grid;
+    place-content: center;
+}
+
+.Input input[type="checkbox"]::before {
+    content: "";
+    width: 0.7rem;
+    height: 0.7rem;
+    transform: translateX(-60%);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    background-color: var(--bg-0);
+}
+
+.Input input[type="checkbox"]:checked::before {
+    transform: translateX(60%);
+    background-color: var(--accent-3);
+}
+
+.Input input[type="checkbox"]:hover {
+    border-color: var(--accent-4);
+}
+
+.Input input[type="checkbox"]:focus {
+    outline: none;
+    border-color: var(--accent-3);
+}
