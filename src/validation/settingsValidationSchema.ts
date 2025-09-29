@@ -28,10 +28,12 @@ const settingsValidationSchema = object().shape({
     playerName1: string()
         .min(3, "Player name must be 3 chars long")
         .max(3, "Player name must be 3 chars long")
+        .matches(/^[A-Za-z0-9]+$/, "English letters and numbers only")
         .required('Player name is required'),
     playerName2: string()
         .min(3, "Player name must be 3 chars long")
         .max(3, "Player name must be 3 chars long")
+        .matches(/^[A-Za-z0-9]+$/, "English letters and numbers only")
         .required('Player name is required'),
 });
 

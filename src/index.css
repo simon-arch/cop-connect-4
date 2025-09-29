@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700');
+
 :root {
   font-family: "IBM Plex Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
   background-color: var(--bg-5);
+  -webkit-user-select: none;
+  user-select: none;
 
   --accent-hue: 130;
   --accent-1: oklch(75% 0.12 var(--accent-hue));

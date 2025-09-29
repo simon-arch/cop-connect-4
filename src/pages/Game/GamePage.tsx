@@ -20,7 +20,7 @@ const GamePage = () => {
         setModalOpen(true);
     }
 
-    const onRetry = () => window.location.reload();
+    const onRetry = () => navigate(0);
     const onBack = () => navigate("/start");
     const onResults = () => navigate("/results");
 

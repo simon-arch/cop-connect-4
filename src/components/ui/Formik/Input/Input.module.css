@@ -41,7 +41,6 @@
 }
 
 .Input input[type="checkbox"] {
-    appearance: none;
     -webkit-appearance: none;
     width: 1rem;
     height: 1rem;
