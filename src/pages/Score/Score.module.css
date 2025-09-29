@@ -5,22 +5,15 @@
     flex-direction: column;
 }
 
-.Score {
+.Table {
     font-family: "Roboto Mono", system-ui, Avenir, Helvetica, Arial, sans-serif;
+    border-collapse: collapse;
 }
 
-.Score a {
-    display: block;
+.Table td {
     padding: 0 1rem;
-    text-decoration: none;
-    color: inherit;
 }
 
-.Score a:nth-of-type(even) {
+.Table tr:nth-of-type(even) {
     background-color: var(--bg-4);
-}
-
-.Score a:hover {
-    background-color: var(--bg-3);
-    cursor: pointer;
 }

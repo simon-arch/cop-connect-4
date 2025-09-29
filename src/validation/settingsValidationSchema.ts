@@ -25,6 +25,14 @@ const settingsValidationSchema = object().shape({
     initialPlayer: string()
         .oneOf(['P1', 'P2'], 'Select either P1 or P2')
         .required('Initial Player is required'),
+    playerName1: string()
+        .min(3, "Player name must be 3 chars long")
+        .max(3, "Player name must be 3 chars long")
+        .required('Player name is required'),
+    playerName2: string()
+        .min(3, "Player name must be 3 chars long")
+        .max(3, "Player name must be 3 chars long")
+        .required('Player name is required'),
 });
 
 export default settingsValidationSchema;

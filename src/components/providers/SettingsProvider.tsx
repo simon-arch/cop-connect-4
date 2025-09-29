@@ -12,6 +12,8 @@ const defaultSettings: GameSettings = {
     gridCols: 7,
     winSize: 4,
     initialPlayer: "P1",
+    playerName1: "PL1",
+    playerName2: "PL2"
 };
 
 const storageKey = 'game-settings';

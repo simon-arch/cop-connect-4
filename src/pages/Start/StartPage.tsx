@@ -13,7 +13,10 @@ const StartPage = () => {
     const navigate = useNavigate();
     const {settings, update} = useSettings();
     const isErrors = (errors: FormikErrors<GameSettings>) => Object.keys(errors).length !== 0
-    const onStart = () => navigate("/game");
+    const onSubmit = (settings: GameSettings) => {
+        update(settings)
+        navigate("/game");
+    }
 
     return (
         <div className={style.Page}>
@@ -22,7 +25,7 @@ const StartPage = () => {
                 <Formik
                     initialValues={settings}
                     validationSchema={settingsValidationSchema}
-                    onSubmit={(settings) => update(settings)}
+                    onSubmit={(settings) => onSubmit(settings)}
                 >
                     {({errors}) => (
                         <Form>
@@ -30,6 +33,8 @@ const StartPage = () => {
                             <Input name="gridRows" label="Grid Rows" type="number" />
                             <Input name="gridCols" label="Grid Columns" type="number" />
                             <Input name="winSize" label="Win Size" type="number" />
+                            <Input name="playerName1" label="Player 1 Name" type="text" />
+                            <Input name="playerName2" label="Player 2 Name" type="text" />
                             <Select
                                 name="initialPlayer"
                                 label="Starting Player"
@@ -38,7 +43,7 @@ const StartPage = () => {
                                     {value: "P2", label: "P2"},
                                 ]}
                             />
-                            <Button disabled={isErrors(errors)} onClick={onStart} type="submit">Start Game</Button>
+                            <Button disabled={isErrors(errors)} type="submit">Start Game</Button>
                         </Form>
                     )}
                 </Formik>

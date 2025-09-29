@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 const ResultsPage = () => {
     const navigate = useNavigate();
     const onStart = () => navigate("/start");
+    const onLink = (nickname: string) => navigate(`/score/${nickname}`);
 
     type mockType = {
         nickname: string,
@@ -27,7 +28,7 @@ const ResultsPage = () => {
             <div className={style.Score}>
                 {
                     mockScores.map((entry) =>
-                        <a>{entry.nickname} {entry.score}</a>
+                        <a onClick={() => onLink(entry.nickname)} key={entry.nickname}>{entry.nickname} {entry.score}</a>
                     )
                 }
             </div>
