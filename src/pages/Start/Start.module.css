@@ -1,0 +1,22 @@
+.Page {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.Container {
+    display: flex;
+    text-align: justify;
+    max-width: 600px;
+    gap: 1rem;
+}
+
+.Yellow {
+    color: orange;
+}
+
+.Red {
+    color: indianred;
+}

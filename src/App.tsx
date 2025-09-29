@@ -1,9 +1,9 @@
-import StartPage from "./pages/StartPage.tsx";
-import GamePage from "./pages/GamePage.tsx";
+import StartPage from "./pages/Start/StartPage.tsx";
+import GamePage from "./pages/Game/GamePage.tsx";
 import PlayerProvider from "./components/providers/PlayerProvider.tsx";
 import SettingsProvider from "./components/providers/SettingsProvider.tsx";
-import ResultsPage from "./pages/ResultsPage.tsx";
-import WelcomePage from "./pages/WelcomePage.tsx";
+import ResultsPage from "./pages/Results/ResultsPage.tsx";
+import WelcomePage from "./pages/Welcome/WelcomePage.tsx";
 import {Route, Routes} from "react-router-dom";
 
 function App() {

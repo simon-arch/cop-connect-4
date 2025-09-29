@@ -7,11 +7,12 @@
     background: rgba(0,0,0,0.4);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     z-index: 10;
 }
 
 .Content {
+    margin-top: 150px;
     background: var(--bg-3);
     color: var(--text-1);
     padding: 2rem;
