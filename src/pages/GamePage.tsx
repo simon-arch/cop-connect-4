@@ -1,18 +1,15 @@
 import Button from "../components/ui/Button/Button.tsx";
 import Title from "../components/ui/Title/Title.tsx";
 import Board from "../components/game/Board/Board.tsx";
-import GridProvider from "../components/providers/GridProvider.tsx";
-import type {CellOwner} from "../types/cellOwner.ts";
-import {usePlayer} from "../hooks/usePlayer.tsx";
 import Modal from "../components/ui/Modal/Modal.tsx";
+import GridProvider from "../components/providers/GridProvider.tsx";
+import {usePlayer} from "../hooks/usePlayer.tsx";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+import type {CellOwner} from "../types/cellOwner.ts";
 
-interface GamePageProps {
-    onFinish: () => void;
-    onRetry: () => void;
-}
-
-const GamePage = (props: GamePageProps) => {
+const GamePage = () => {
+    const navigate = useNavigate();
     const [winner, setWinner] = useState<CellOwner | undefined>(undefined);
     const [modalOpen, setModalOpen] = useState(false);
     const {player} = usePlayer();
@@ -22,19 +19,23 @@ const GamePage = (props: GamePageProps) => {
         setModalOpen(true);
     }
 
+    const onBack = () => navigate("/start");
+    const onRetry = () => window.location.reload();
+    const onResults = () => navigate("/results");
+
     const title = winner === undefined ? player : winner ? `${winner} Won` : "Tie";
 
     return (
         <GridProvider onEnd={onEnd}>
             <Title>Page - Game [{title}]</Title>
-            <Button onClick={props.onFinish}>Finish Game</Button>
+            <Button onClick={onBack}>Back to Start</Button>
             <Board/>
             {modalOpen && (
                 <Modal onClose={() => setModalOpen(false)}>
                     End of the game. {title}!
                     <div>
-                        <Button onClick={props.onRetry}>Play again</Button>
-                        <Button onClick={props.onFinish}>Finish game</Button>
+                        <Button onClick={onRetry}>Play again</Button>
+                        <Button onClick={onResults}>Finish session</Button>
                     </div>
                 </Modal>
             )}

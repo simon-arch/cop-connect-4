@@ -1,1 +1,0 @@
-export type pageType = "START" | "GAME" | "RESULTS";
