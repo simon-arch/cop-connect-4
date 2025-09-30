@@ -1,23 +1,23 @@
 .Page {
-    width: 100%;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+	width: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 }
 
 .Table {
-    font-family: "Roboto Mono", system-ui, Avenir, Helvetica, Arial, sans-serif;
-    border-collapse: collapse;
+	font-family: 'Roboto Mono', system-ui, Avenir, Helvetica, Arial, sans-serif;
+	border-collapse: collapse;
 }
 
 .Table td {
-    padding: 0 1rem;
+	padding: 0 1rem;
 }
 
 .Table tr:nth-of-type(even) {
-    background-color: var(--bg-4);
+	background-color: var(--bg-4);
 }
 
 .Table tr:hover {
-    background-color: var(--bg-3);
+	background-color: var(--bg-3);
 }

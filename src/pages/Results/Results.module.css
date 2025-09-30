@@ -1,26 +1,26 @@
 .Page {
-    width: 100%;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+	width: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 }
 
 .Score {
-    font-family: "Roboto Mono", system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: 'Roboto Mono', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .Score a {
-    display: block;
-    padding: 0 1rem;
-    text-decoration: none;
-    color: inherit;
+	display: block;
+	padding: 0 1rem;
+	text-decoration: none;
+	color: inherit;
 }
 
 .Score a:nth-of-type(even) {
-    background-color: var(--bg-4);
+	background-color: var(--bg-4);
 }
 
 .Score a:hover {
-    background-color: var(--bg-3);
-    cursor: pointer;
+	background-color: var(--bg-3);
+	cursor: pointer;
 }

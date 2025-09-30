@@ -1,6 +1,6 @@
 export interface UserData {
-    nickname: string;
-    playtime: number;
-    wins: number;
-    games: number;
+	nickname: string;
+	playtime: number;
+	wins: number;
+	games: number;
 }

@@ -1,31 +1,31 @@
-import {create} from "zustand";
-import {persist} from "zustand/middleware";
-import type {UserData} from "@interfaces/userData.ts";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import type { UserData } from '@interfaces/userData.ts';
 
 interface UserDataStore {
-    userData: UserData[];
-    upsertUser: (user: UserData) => void;
+	userData: UserData[];
+	upsertUser: (user: UserData) => void;
 }
 
 export const useUserDataStore = create<UserDataStore>()(
-    persist(
-        (set) => ({
-            userData: [],
-            upsertUser: (user) =>
-                set((state) => {
-                    const existingIndex = state.userData.findIndex(
-                        (u) => u.nickname === user.nickname
-                    );
+	persist(
+		(set) => ({
+			userData: [],
+			upsertUser: (user) =>
+				set((state) => {
+					const existingIndex = state.userData.findIndex(
+						(u) => u.nickname === user.nickname,
+					);
 
-                    if (existingIndex !== -1) {
-                        const updatedUserData = [...state.userData];
-                        updatedUserData[existingIndex] = user;
-                        return { userData: updatedUserData };
-                    }
+					if (existingIndex !== -1) {
+						const updatedUserData = [...state.userData];
+						updatedUserData[existingIndex] = user;
+						return { userData: updatedUserData };
+					}
 
-                    return { userData: [...state.userData, user] };
-                }),
-        }),
-        { name: "user-data" }
-    )
+					return { userData: [...state.userData, user] };
+				}),
+		}),
+		{ name: 'user-data' },
+	),
 );

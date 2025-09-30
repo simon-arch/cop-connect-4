@@ -2,31 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700');
 
 :root {
-  font-family: "IBM Plex Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: var(--bg-5);
-  -webkit-user-select: none;
-  user-select: none;
+	font-family:
+		'IBM Plex Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: var(--bg-5);
+	-webkit-user-select: none;
+	user-select: none;
 
-  --accent-hue: 130;
-  --accent-1: oklch(75% 0.12 var(--accent-hue));
-  --accent-2: oklch(70% 0.12 var(--accent-hue));
-  --accent-3: oklch(65% 0.12 var(--accent-hue));
-  --accent-4: oklch(60% 0.12 var(--accent-hue));
-  --accent-5: oklch(55% 0.12 var(--accent-hue));
+	--accent-hue: 130;
+	--accent-1: oklch(75% 0.12 var(--accent-hue));
+	--accent-2: oklch(70% 0.12 var(--accent-hue));
+	--accent-3: oklch(65% 0.12 var(--accent-hue));
+	--accent-4: oklch(60% 0.12 var(--accent-hue));
+	--accent-5: oklch(55% 0.12 var(--accent-hue));
 
-  --text-1: oklch(95% 0 0);
-  --text-2: oklch(85% 0 0);
-  --text-3: oklch(75% 0 0);
-  --text-4: oklch(60% 0 0);
-  --text-5: oklch(40% 0 0);
+	--text-1: oklch(95% 0 0);
+	--text-2: oklch(85% 0 0);
+	--text-3: oklch(75% 0 0);
+	--text-4: oklch(60% 0 0);
+	--text-5: oklch(40% 0 0);
 
-  --bg-0: oklch(35% 0 0);
-  --bg-1: oklch(31% 0 0);
-  --bg-2: oklch(27% 0 0);
-  --bg-3: oklch(25% 0 0);
-  --bg-4: oklch(23% 0 0);
-  --bg-5: oklch(19% 0 0);
+	--bg-0: oklch(35% 0 0);
+	--bg-1: oklch(31% 0 0);
+	--bg-2: oklch(27% 0 0);
+	--bg-3: oklch(25% 0 0);
+	--bg-4: oklch(23% 0 0);
+	--bg-5: oklch(19% 0 0);
 }

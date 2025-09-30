@@ -1,0 +1,11 @@
+{
+	"bracketSpacing": true,
+	"singleQuote": true,
+	"useTabs": true,
+	"semi": true,
+
+	"trailingComma": "all",
+	"endOfLine": "crlf",
+
+	"tabWidth": 4
+}
