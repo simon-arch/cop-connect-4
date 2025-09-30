@@ -27,7 +27,6 @@ export const GamePage = () => {
 		setModalOpen(true);
 	};
 
-	const onRetry = () => navigate(0);
 	const onBack = () => navigate('/start');
 	const onResults = () => navigate('/results');
 
@@ -50,7 +49,7 @@ export const GamePage = () => {
 					<div className={style.ModalContent}>
 						<div>End of the game. {title}!</div>
 						<div className={style.ModalButtons}>
-							<Button onClick={onRetry}>Play again</Button>
+							<Button onClick={onBack}>Play again</Button>
 							<Button onClick={onResults}>Finish session</Button>
 						</div>
 					</div>

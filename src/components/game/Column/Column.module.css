@@ -13,6 +13,6 @@
 }
 
 .column.playable:hover > *:first-child {
-	background-image: url('src/assets/disc.png');
+	background-image: url('/public/images/disc.png');
 	background-size: cover;
 }
