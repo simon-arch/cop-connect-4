@@ -7,7 +7,7 @@ interface InputProps {
     type: string;
 }
 
-const Input = ({label, name, type}: InputProps) => {
+export const Input = ({label, name, type}: InputProps) => {
     return (
         <div className={style.Input}>
             <label htmlFor={name}>{label}</label><br/>
@@ -16,5 +16,3 @@ const Input = ({label, name, type}: InputProps) => {
         </div>
     );
 };
-
-export default Input;

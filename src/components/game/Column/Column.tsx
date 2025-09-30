@@ -1,16 +1,16 @@
 import style from './Column.module.css';
-import Cell from "../Cell/Cell.tsx";
-import {useGrid} from "../../../hooks/useGrid.tsx";
-import type {CellOwner} from "../../../types/cellOwner.ts";
-import useGameSettingsStore from "../../../stores/useGameSettingsStore.tsx";
-import usePlayerStore from "../../../stores/usePlayerStore.tsx";
+import {Cell} from "@components/game/Cell/Cell.tsx";
+import {useGrid} from "@hooks/useGrid.tsx";
+import type {CellOwner} from "@interfaces/cellOwner.ts";
+import {useGameSettingsStore} from "@stores/useGameSettingsStore.tsx";
+import {usePlayerStore} from "@stores/usePlayerStore.tsx";
 
 interface ColumnProps {
     index: number;
     cells: CellOwner[];
 }
 
-export default function Column(props: ColumnProps) {
+export function Column(props: ColumnProps) {
     const {append, ended} = useGrid();
     const {settings: {gridRows}} = useGameSettingsStore();
     const {player} = usePlayerStore();

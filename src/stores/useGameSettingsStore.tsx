@@ -1,6 +1,6 @@
 import {create} from 'zustand'
-import type {GameSettings} from "../types/gameSettings.ts";
 import {persist} from "zustand/middleware";
+import type {GameSettings} from "@interfaces/gameSettings.ts";
 
 interface GameSettingsStore {
     settings: GameSettings;
@@ -17,7 +17,7 @@ const defaultSettings: GameSettings = {
     playerName2: "PL2"
 };
 
-const useGameSettingsStore = create<GameSettingsStore>()(
+export const useGameSettingsStore = create<GameSettingsStore>()(
     persist(
         (set) => ({
             settings: defaultSettings,
@@ -26,5 +26,3 @@ const useGameSettingsStore = create<GameSettingsStore>()(
         {name: 'game-settings'}
     )
 );
-
-export default useGameSettingsStore;

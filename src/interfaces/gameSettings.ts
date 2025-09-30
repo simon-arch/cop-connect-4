@@ -1,4 +1,4 @@
-import type {CellOwner} from "./cellOwner.ts";
+import type {CellOwner} from "@interfaces/cellOwner.ts";
 
 export interface GameSettings {
     playAnimations: boolean;

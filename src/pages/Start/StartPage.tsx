@@ -1,15 +1,15 @@
 import style from './Start.module.css';
-import Button from "../../components/ui/Button/Button.tsx";
-import Title from "../../components/ui/Title/Title.tsx";
-import Input from "../../components/ui/Formik/Input/Input.tsx";
-import Select from "../../components/ui/Formik/Select/Select.tsx";
+import {Button} from "@components/ui/Button/Button.tsx";
+import {Title} from "@components/ui/Title/Title.tsx";
+import {Input} from "@components/ui/Formik/Input/Input.tsx";
+import {Select} from "@components/ui/Formik/Select/Select.tsx";
 import {Form, Formik, type FormikErrors} from "formik";
 import {useNavigate} from "react-router-dom";
-import type {GameSettings} from "../../types/gameSettings.ts";
-import settingsValidationSchema from "../../validation/settingsValidationSchema.ts";
-import useGameSettingsStore from "../../stores/useGameSettingsStore.tsx";
+import type {GameSettings} from "@interfaces/gameSettings.ts";
+import {settingsValidationSchema} from "@validation/settingsValidationSchema.ts";
+import {useGameSettingsStore} from "@stores/useGameSettingsStore.tsx";
 
-const StartPage = () => {
+export const StartPage = () => {
     const navigate = useNavigate();
     const {settings, setSettings} = useGameSettingsStore();
 
@@ -57,5 +57,3 @@ const StartPage = () => {
         </div>
     );
 }
-
-export default StartPage;

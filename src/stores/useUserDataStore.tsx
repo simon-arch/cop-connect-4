@@ -1,13 +1,13 @@
 import {create} from "zustand";
 import {persist} from "zustand/middleware";
-import type {UserData} from "../types/userData.ts";
+import type {UserData} from "@interfaces/userData.ts";
 
 interface UserDataStore {
     userData: UserData[];
     upsertUser: (user: UserData) => void;
 }
 
-const useUserDataStore = create<UserDataStore>()(
+export const useUserDataStore = create<UserDataStore>()(
     persist(
         (set) => ({
             userData: [],
@@ -29,5 +29,3 @@ const useUserDataStore = create<UserDataStore>()(
         { name: "user-data" }
     )
 );
-
-export default useUserDataStore;

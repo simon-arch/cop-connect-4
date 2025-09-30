@@ -1,8 +1,8 @@
 import style from './Board.module.css';
-import Column from '../Column/Column.tsx';
-import {useGrid} from "../../../hooks/useGrid.tsx";
+import {Column} from '@components/game/Column/Column.tsx';
+import {useGrid} from "@hooks/useGrid.tsx";
 
-export default function Board() {
+export function Board() {
     const {grid} = useGrid();
 
     return (

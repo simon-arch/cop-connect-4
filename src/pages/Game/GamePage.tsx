@@ -1,26 +1,28 @@
 import style from './Game.module.css';
-import Button from "../../components/ui/Button/Button.tsx";
-import Title from "../../components/ui/Title/Title.tsx";
-import Board from "../../components/game/Board/Board.tsx";
-import Modal from "../../components/ui/Modal/Modal.tsx";
-import GridProvider from "../../components/providers/GridProvider.tsx";
-import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import type {CellOwner} from "../../types/cellOwner.ts";
-import usePlayerStore from "../../stores/usePlayerStore.tsx";
-import useTimer from "../../hooks/useTimer.tsx";
-import secondsToTime from "../../utils/secondsToTime";
-import padTime from "../../utils/padTime.ts";
+import {useState} from "react";
+import {useTimer} from "@hooks/useTimer.tsx";
+import {usePlayerStore} from "@stores/usePlayerStore.tsx";
+import {GridProvider} from "@components/providers/GridProvider.tsx";
+import {Button} from "@components/ui/Button/Button.tsx";
+import {Title} from "@components/ui/Title/Title.tsx";
+import {Board} from "@components/game/Board/Board.tsx";
+import {Modal} from "@components/ui/Modal/Modal.tsx";
+import type {CellOwner} from "@interfaces/cellOwner.ts";
+import {secondsToTime} from "@utils/secondsToTime";
+import {padTime} from "@utils/padTime.ts";
 
-const GamePage = () => {
+export const GamePage = () => {
     const navigate = useNavigate();
     const [winner, setWinner] = useState<CellOwner | undefined>(undefined);
     const [modalOpen, setModalOpen] = useState(false);
     const {player} = usePlayerStore();
-    const timer = useTimer();
-    const time = secondsToTime(timer);
+
+    const {seconds, stopTimer} = useTimer();
+    const time = secondsToTime(seconds);
 
     const onEnd = (winner: CellOwner) => {
+        stopTimer();
         setWinner(winner);
         setModalOpen(true);
     }
@@ -55,5 +57,3 @@ const GamePage = () => {
         </div>
     );
 };
-
-export default GamePage;

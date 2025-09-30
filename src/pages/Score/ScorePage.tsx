@@ -1,12 +1,12 @@
 import style from './Score.module.css';
-import Button from "../../components/ui/Button/Button.tsx";
-import Title from "../../components/ui/Title/Title.tsx";
-import secondsToTime from "../../utils/secondsToTime.ts";
+import {Button} from "@components/ui/Button/Button.tsx";
+import {Title} from "@components/ui/Title/Title.tsx";
+import {secondsToTime} from "@utils/secondsToTime.ts";
 import {useNavigate, useParams} from "react-router-dom";
-import useUserDataStore from "../../stores/useUserDataStore.tsx";
-import padTime from "../../utils/padTime.ts";
+import {useUserDataStore} from "@stores/useUserDataStore.tsx";
+import {padTime} from "@utils/padTime.ts";
 
-const ScorePage = () => {
+export const ScorePage = () => {
     const navigate = useNavigate();
     const {nickname} = useParams();
     const {userData} = useUserDataStore();
@@ -55,5 +55,3 @@ const ScorePage = () => {
         </div>
     );
 }
-
-export default ScorePage;

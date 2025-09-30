@@ -9,7 +9,7 @@ interface ModalProps {
 
 const root = document.getElementById('portal-root');
 
-const Modal = ({children, onClose}: ModalProps) => {
+export const Modal = ({children, onClose}: ModalProps) => {
     if (!root) return null;
 
     return createPortal(
@@ -22,5 +22,3 @@ const Modal = ({children, onClose}: ModalProps) => {
         root
     );
 };
-
-export default Modal;

@@ -1,6 +1,6 @@
 import {create} from "zustand";
-import type {CellOwner} from "../types/cellOwner.ts";
-import useGameSettingsStore from "./useGameSettingsStore.tsx";
+import type {CellOwner} from "@interfaces/cellOwner.ts";
+import {useGameSettingsStore} from "@stores/useGameSettingsStore.tsx";
 
 interface PlayerStore {
     player: CellOwner;
@@ -8,7 +8,7 @@ interface PlayerStore {
     nextPlayer: () => void;
 }
 
-const usePlayerStore = create<PlayerStore>((set) => {
+export const usePlayerStore = create<PlayerStore>((set) => {
     useGameSettingsStore.subscribe(
         (state) => set({ player: state.settings.initialPlayer })
     );
@@ -21,5 +21,3 @@ const usePlayerStore = create<PlayerStore>((set) => {
         }))
     };
 });
-
-export default usePlayerStore;

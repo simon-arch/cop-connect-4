@@ -1,5 +1,5 @@
 import {createContext, useContext} from "react";
-import type {CellOwner} from "../types/cellOwner.ts";
+import type {CellOwner} from "@interfaces/cellOwner.ts";
 
 interface GridContextType {
     append: (colIndex: number, owner: CellOwner) => void

@@ -1,6 +1,6 @@
 import {bool, number, object, string} from "yup";
 
-const settingsValidationSchema = object().shape({
+export const settingsValidationSchema = object().shape({
     playAnimations: bool().required('Play Animations is required'),
     gridRows: number()
         .min(2, 'Grid Rows must be greater than 1')
@@ -36,5 +36,3 @@ const settingsValidationSchema = object().shape({
         .matches(/^[A-Za-z0-9]+$/, "English letters and numbers only")
         .required('Player name is required'),
 });
-
-export default settingsValidationSchema;

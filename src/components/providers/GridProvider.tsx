@@ -1,9 +1,9 @@
 import {type ReactNode, useCallback, useMemo, useState} from "react";
-import type {CellOwner} from "../../types/cellOwner.ts";
-import {GridContext} from "../../hooks/useGrid.tsx";
-import useGameSettingsStore from "../../stores/useGameSettingsStore.tsx";
-import usePlayerStore from "../../stores/usePlayerStore.tsx";
-import useUserDataStore from "../../stores/useUserDataStore.tsx";
+import type {CellOwner} from "@interfaces/cellOwner.ts";
+import {GridContext} from "@hooks/useGrid.tsx";
+import {useGameSettingsStore} from "@stores/useGameSettingsStore.tsx";
+import {usePlayerStore} from "@stores/usePlayerStore.tsx";
+import {useUserDataStore} from "@stores/useUserDataStore.tsx";
 
 interface GridProviderProps {
     children: ReactNode;
@@ -51,7 +51,7 @@ const findWinner = (grid: CellOwner[][], rows: number, cols: number, winSize: nu
     return grid.every(col => col.length === rows) ? null : undefined;
 }
 
-const GridProvider = ({children, onEnd}: GridProviderProps) => {
+export const GridProvider = ({children, onEnd}: GridProviderProps) => {
     const {settings} = useGameSettingsStore();
     const {nextPlayer} = usePlayerStore();
     const {userData, upsertUser} = useUserDataStore();
@@ -107,5 +107,3 @@ const GridProvider = ({children, onEnd}: GridProviderProps) => {
         </GridContext.Provider>
     )
 }
-
-export default GridProvider;

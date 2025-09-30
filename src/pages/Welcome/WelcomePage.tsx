@@ -1,8 +1,8 @@
 import style from './Welcome.module.scss';
-import Button from "../../components/ui/Button/Button.tsx";
+import {Button} from "@components/ui/Button/Button.tsx";
 import {useNavigate} from "react-router-dom";
 
-const WelcomePage = () => {
+export const WelcomePage = () => {
     const navigate = useNavigate();
     const onStart = () => navigate("/start");
     const logo = 'Connect-4';
@@ -21,5 +21,3 @@ const WelcomePage = () => {
         </div>
     );
 }
-
-export default WelcomePage;

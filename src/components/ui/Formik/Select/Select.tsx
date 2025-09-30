@@ -12,7 +12,7 @@ interface SelectProps {
     options: SelectOption[];
 }
 
-const Select = ({label, name, options}: SelectProps) => {
+export const Select = ({label, name, options}: SelectProps) => {
     return (
         <div className={style.Select}>
             <label htmlFor={name}>{label}</label><br/>
@@ -27,5 +27,3 @@ const Select = ({label, name, options}: SelectProps) => {
         </div>
     );
 };
-
-export default Select;
