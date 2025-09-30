@@ -4,17 +4,18 @@ import Title from "../../components/ui/Title/Title.tsx";
 import Input from "../../components/ui/Formik/Input/Input.tsx";
 import Select from "../../components/ui/Formik/Select/Select.tsx";
 import {Form, Formik, type FormikErrors} from "formik";
-import {useSettings} from "../../hooks/useSettings.tsx";
 import {useNavigate} from "react-router-dom";
 import type {GameSettings} from "../../types/gameSettings.ts";
 import settingsValidationSchema from "../../validation/settingsValidationSchema.ts";
+import useGameSettingsStore from "../../stores/useGameSettingsStore.tsx";
 
 const StartPage = () => {
     const navigate = useNavigate();
-    const {settings, update} = useSettings();
+    const {settings, setSettings} = useGameSettingsStore();
+
     const isErrors = (errors: FormikErrors<GameSettings>) => Object.keys(errors).length !== 0
     const onSubmit = (settings: GameSettings) => {
-        update(settings)
+        setSettings(settings)
         navigate("/game");
     }
 

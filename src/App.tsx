@@ -4,22 +4,19 @@ import GamePage from "./pages/Game/GamePage.tsx";
 import ResultsPage from "./pages/Results/ResultsPage.tsx";
 import ScorePage from "./pages/Score/ScorePage.tsx";
 import PlayerProvider from "./components/providers/PlayerProvider.tsx";
-import SettingsProvider from "./components/providers/SettingsProvider.tsx";
 import {Route, Routes} from "react-router-dom";
 
 function App() {
     return (
-        <SettingsProvider>
-            <PlayerProvider>
-                <Routes>
-                    <Route path="/" element={<WelcomePage/>}/>
-                    <Route path="/start" element={<StartPage/>}/>
-                    <Route path="/game" element={<GamePage/>}/>
-                    <Route path="/results" element={<ResultsPage/>}/>
-                    <Route path="/score/:nickname" element={<ScorePage/>}/>
-                </Routes>
-            </PlayerProvider>
-        </SettingsProvider>
+        <PlayerProvider>
+            <Routes>
+                <Route path="/" element={<WelcomePage/>}/>
+                <Route path="/start" element={<StartPage/>}/>
+                <Route path="/game" element={<GamePage/>}/>
+                <Route path="/results" element={<ResultsPage/>}/>
+                <Route path="/score/:nickname" element={<ScorePage/>}/>
+            </Routes>
+        </PlayerProvider>
     );
 }
 

@@ -3,7 +3,7 @@ import Cell from "../Cell/Cell.tsx";
 import type {CellOwner} from "../../../types/cellOwner.ts";
 import {useGrid} from "../../../hooks/useGrid.tsx";
 import {usePlayer} from "../../../hooks/usePlayer.tsx";
-import {useSettings} from "../../../hooks/useSettings.tsx";
+import useGameSettingsStore from "../../../stores/useGameSettingsStore.tsx";
 
 interface ColumnProps {
     index: number;
@@ -12,7 +12,7 @@ interface ColumnProps {
 
 export default function Column(props: ColumnProps) {
     const {append, ended} = useGrid();
-    const {settings: {gridRows}} = useSettings();
+    const {settings: {gridRows}} = useGameSettingsStore();
     const {player} = usePlayer();
 
     const cells = [...props.cells];
