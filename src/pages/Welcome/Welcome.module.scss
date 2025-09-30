@@ -1,0 +1,41 @@
+.Welcome {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.Logo span {
+    opacity: 0;
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: bold;
+    transform: translateY(-30px);
+    animation: fade 0.5s ease-out forwards;
+}
+
+.Author {
+    opacity: 0;
+    font-size: 0.65rem;
+    margin-bottom: 0.5rem;
+    animation: fade 1s ease-out forwards;
+}
+
+.Welcome {
+    div:nth-child(1) {
+        @for $i from 1 through 9 {
+            span:nth-child(#{$i}) {
+                animation-delay: #{0.1 * $i}s;
+            }
+        }
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

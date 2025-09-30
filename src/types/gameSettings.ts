@@ -5,5 +5,7 @@ export interface GameSettings {
     gridRows: number;
     gridCols: number;
     winSize: number;
-    initialPlayer: Exclude<CellOwner, null>
+    initialPlayer: Exclude<CellOwner, null>;
+    playerName1: string;
+    playerName2: string;
 }

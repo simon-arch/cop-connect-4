@@ -13,7 +13,7 @@ const Modal = ({children, onClose}: ModalProps) => {
     if (!root) return null;
 
     return createPortal(
-        <div className={style.Overlay} onClick={onClose}>
+        <div className={style.Overlay}>
             <div className={style.Content} onClick={(e) => e.stopPropagation()}>
                 <button className={style.Button} onClick={onClose}>✖</button>
                 {children}

@@ -7,13 +7,14 @@
     background: rgba(0,0,0,0.4);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     z-index: 10;
 }
 
 .Content {
-    background: white;
-    color: black;
+    margin-top: 150px;
+    background: var(--bg-3);
+    color: var(--text-1);
     padding: 2rem;
     position: relative;
     min-width: 300px;
@@ -22,6 +23,7 @@
 }
 
 .Button {
+    color: var(--text-1);
     position: absolute;
     top: 0.2rem;
     right: 0.2rem;
