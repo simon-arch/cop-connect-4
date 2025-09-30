@@ -1,18 +1,18 @@
 .column {
-    display: flex;
-    flex-direction: column;
-    padding: 0 0.1rem;
+	display: flex;
+	flex-direction: column;
+	padding: 0 0.1rem;
 }
 
 .column.playable.P1:hover {
-    background: rgba(255, 165, 0, 0.5)
+	background: rgba(255, 165, 0, 0.5);
 }
 
 .column.playable.P2:hover {
-    background: rgba(170, 0, 0, 0.5)
+	background: rgba(170, 0, 0, 0.5);
 }
 
 .column.playable:hover > *:first-child {
-    background-image: url("src/assets/disc.png");
-    background-size: cover;
+	background-image: url('/public/images/disc.png');
+	background-size: cover;
 }

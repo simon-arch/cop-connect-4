@@ -1,10 +1,10 @@
 .title {
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(128, 128, 128, 0.07),
-        rgba(128, 128, 128, 0.07) 10px,
-        transparent 10px,
-        transparent 20px
-    );
-    padding: 0 1rem;
+	background: repeating-linear-gradient(
+		45deg,
+		rgba(128, 128, 128, 0.07),
+		rgba(128, 128, 128, 0.07) 10px,
+		transparent 10px,
+		transparent 20px
+	);
+	padding: 0 1rem;
 }
