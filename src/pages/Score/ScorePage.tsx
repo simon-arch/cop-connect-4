@@ -3,16 +3,18 @@ import Button from "../../components/ui/Button/Button.tsx";
 import Title from "../../components/ui/Title/Title.tsx";
 import secondsToTime from "../../utils/secondsToTime.ts";
 import {useNavigate, useParams} from "react-router-dom";
-import {useUserDataStorage} from "../../hooks/useUserDataStorage.tsx";
+import useUserDataStore from "../../stores/useUserDataStore.tsx";
+import padTime from "../../utils/padTime.ts";
 
 const ScorePage = () => {
     const navigate = useNavigate();
     const {nickname} = useParams();
-    const userData = useUserDataStorage(nickname);
+    const {userData} = useUserDataStore();
     const onResults = () => navigate("/results");
 
-    const time = userData ? secondsToTime(userData.playtime) : null;
-    const format = (val: number) => val.toString().padStart(2, '0');
+    const user = userData.find(u => u.nickname === nickname)
+    const time = user ? secondsToTime(user.playtime) : null;
+    const winrate = user ? (user.games > 0 ? (user.wins / user.games) * 100 : 0) : null;
 
     return (
         <div className={style.Page}>
@@ -21,15 +23,29 @@ const ScorePage = () => {
                     <tbody>
                     <tr>
                         <td>Playtime</td>
-                        <td>{userData && time
-                            ? `${format(time.days)}:${format(time.hours)}:${format(time.minutes)}:${format(time.seconds)}`
+                        <td>{user && time
+                            ? `${padTime(time.days)}:${padTime(time.hours)}:${padTime(time.minutes)}:${padTime(time.seconds)}`
+                            : "No Data"}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Games</td>
+                        <td>{user
+                            ? user.games
                             : "No Data"}
                         </td>
                     </tr>
                     <tr>
                         <td>Wins</td>
-                        <td>{userData
-                            ? userData.wins
+                        <td>{user
+                            ? user.wins
+                            : "No Data"}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Winrate</td>
+                        <td>{user && winrate !== null
+                            ? `${winrate.toFixed(1)}%`
                             : "No Data"}
                         </td>
                     </tr>

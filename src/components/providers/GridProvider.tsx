@@ -1,8 +1,9 @@
-import {type ReactNode, useCallback, useState} from "react";
+import {type ReactNode, useCallback, useMemo, useState} from "react";
 import type {CellOwner} from "../../types/cellOwner.ts";
 import {GridContext} from "../../hooks/useGrid.tsx";
 import useGameSettingsStore from "../../stores/useGameSettingsStore.tsx";
 import usePlayerStore from "../../stores/usePlayerStore.tsx";
+import useUserDataStore from "../../stores/useUserDataStore.tsx";
 
 interface GridProviderProps {
     children: ReactNode;
@@ -53,8 +54,10 @@ const findWinner = (grid: CellOwner[][], rows: number, cols: number, winSize: nu
 const GridProvider = ({children, onEnd}: GridProviderProps) => {
     const {settings} = useGameSettingsStore();
     const {nextPlayer} = usePlayerStore();
+    const {userData, upsertUser} = useUserDataStore();
     const [grid, setGrid] = useState(getEmptyGrid(settings.gridCols));
     const [ended, setEnded] = useState(false);
+    const start = useMemo(() => new Date(), []);
 
     const append = useCallback((colIndex: number, owner: CellOwner) => {
         if (ended) return;
@@ -72,6 +75,29 @@ const GridProvider = ({children, onEnd}: GridProviderProps) => {
         if (winner !== undefined) {
             onEnd(winner);
             setEnded(true);
+
+            const end = new Date();
+            const duration = (end.getTime() - start.getTime()) / 1000;
+
+            const P1Nickname = settings.playerName1;
+            const P2Nickname = settings.playerName2;
+
+            const P1 = userData.find(u => u.nickname === P1Nickname);
+            const P2 = userData.find(u => u.nickname === P2Nickname);
+
+            upsertUser({
+                nickname: P1Nickname,
+                playtime: (P1?.playtime || 0) + duration,
+                wins: (P1?.wins || 0) + (winner === "P1" ? 1 : 0),
+                games: (P1?.games || 0) + 1
+            });
+
+            upsertUser({
+                nickname: P2Nickname,
+                playtime: (P2?.playtime || 0) + duration,
+                wins: (P2?.wins || 0) + (winner === "P2" ? 1 : 0),
+                games: (P2?.games || 0) + 1
+            });
         }
     }, [ended])
 

@@ -8,12 +8,17 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import type {CellOwner} from "../../types/cellOwner.ts";
 import usePlayerStore from "../../stores/usePlayerStore.tsx";
+import useTimer from "../../hooks/useTimer.tsx";
+import secondsToTime from "../../utils/secondsToTime";
+import padTime from "../../utils/padTime.ts";
 
 const GamePage = () => {
     const navigate = useNavigate();
     const [winner, setWinner] = useState<CellOwner | undefined>(undefined);
     const [modalOpen, setModalOpen] = useState(false);
     const {player} = usePlayerStore();
+    const timer = useTimer();
+    const time = secondsToTime(timer);
 
     const onEnd = (winner: CellOwner) => {
         setWinner(winner);
@@ -29,6 +34,7 @@ const GamePage = () => {
     return (
         <div className={style.Page}>
             <Title>Game - {title}</Title>
+            <span>{padTime(time.days)}:{padTime(time.hours)}:{padTime(time.minutes)}:{padTime(time.seconds)}</span>
             <GridProvider onEnd={onEnd}>
                 <Board/>
             </GridProvider>
