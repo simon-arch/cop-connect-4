@@ -1,8 +1,8 @@
 import {type ReactNode, useCallback, useState} from "react";
 import type {CellOwner} from "../../types/cellOwner.ts";
 import {GridContext} from "../../hooks/useGrid.tsx";
-import {usePlayer} from "../../hooks/usePlayer.tsx";
 import useGameSettingsStore from "../../stores/useGameSettingsStore.tsx";
+import usePlayerStore from "../../stores/usePlayerStore.tsx";
 
 interface GridProviderProps {
     children: ReactNode;
@@ -52,7 +52,7 @@ const findWinner = (grid: CellOwner[][], rows: number, cols: number, winSize: nu
 
 const GridProvider = ({children, onEnd}: GridProviderProps) => {
     const {settings} = useGameSettingsStore();
-    const {next} = usePlayer();
+    const {nextPlayer} = usePlayerStore();
     const [grid, setGrid] = useState(getEmptyGrid(settings.gridCols));
     const [ended, setEnded] = useState(false);
 
@@ -62,7 +62,7 @@ const GridProvider = ({children, onEnd}: GridProviderProps) => {
         const modified = grid.map((col, index) => {
             if (index == colIndex && col.length < settings.gridRows) {
                 col.push(owner);
-                next();
+                nextPlayer();
             }
             return col;
         })

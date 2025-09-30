@@ -4,16 +4,16 @@ import Title from "../../components/ui/Title/Title.tsx";
 import Board from "../../components/game/Board/Board.tsx";
 import Modal from "../../components/ui/Modal/Modal.tsx";
 import GridProvider from "../../components/providers/GridProvider.tsx";
-import {usePlayer} from "../../hooks/usePlayer.tsx";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import type {CellOwner} from "../../types/cellOwner.ts";
+import usePlayerStore from "../../stores/usePlayerStore.tsx";
 
 const GamePage = () => {
     const navigate = useNavigate();
     const [winner, setWinner] = useState<CellOwner | undefined>(undefined);
     const [modalOpen, setModalOpen] = useState(false);
-    const {player} = usePlayer();
+    const {player} = usePlayerStore();
 
     const onEnd = (winner: CellOwner) => {
         setWinner(winner);

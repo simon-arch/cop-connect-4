@@ -1,5 +1,6 @@
-import { create } from 'zustand'
+import {create} from 'zustand'
 import type {GameSettings} from "../types/gameSettings.ts";
+import {persist} from "zustand/middleware";
 
 interface GameSettingsStore {
     settings: GameSettings;
@@ -16,31 +17,14 @@ const defaultSettings: GameSettings = {
     playerName2: "PL2"
 };
 
-const storageKey = 'game-settings';
-const initSettings = (): GameSettings => {
-    try {
-        const stored = localStorage.getItem(storageKey);
-        return stored ? JSON.parse(stored) : defaultSettings;
-    } catch (e) {
-        console.error('Error occurred while loading data from localStorage', e);
-        return defaultSettings;
-    }
-};
-
-const saveToStorage = (settings: GameSettings) => {
-    try {
-        localStorage.setItem(storageKey, JSON.stringify(settings));
-    } catch (e) {
-        console.error('Error occurred while saving data to localStorage', e);
-    }
-};
-
-const useGameSettingsStore = create<GameSettingsStore>((set) => ({
-    settings: initSettings(),
-    setSettings: (settings) => {
-        saveToStorage(settings);
-        set({ settings });
-    }
-}));
+const useGameSettingsStore = create<GameSettingsStore>()(
+    persist(
+        (set) => ({
+            settings: defaultSettings,
+            setSettings: (settings: GameSettings) => set({ settings }),
+        }),
+        {name: 'game-settings'}
+    )
+);
 
 export default useGameSettingsStore;
