@@ -1,7 +1,9 @@
 {
 	"name": "cop-connect-four",
 	"private": true,
-	"version": "0.0.0",
+	"license": "Apache-2.0",
+	"author": "Artem Vashchenko",
+	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -19,6 +21,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.36.0",
+		"@i-novus/license-checker": "^1.0.7",
 		"@types/node": "^24.6.0",
 		"@types/react": "^19.1.13",
 		"@types/react-dom": "^19.1.9",
