@@ -5,7 +5,7 @@ import type { CellOwner } from '@interfaces/cellOwner.ts';
 import { useGameSettingsStore } from '@stores/useGameSettingsStore.tsx';
 import { usePlayerStore } from '@stores/usePlayerStore.tsx';
 
-interface ColumnProps {
+export interface ColumnProps {
 	index: number;
 	cells: CellOwner[];
 }

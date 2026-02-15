@@ -2,7 +2,7 @@ import style from './Cell.module.css';
 import type { CellOwner } from '@interfaces/cellOwner.ts';
 import { useGameSettingsStore } from '@stores/useGameSettingsStore.tsx';
 
-interface CellProps {
+export interface CellProps {
 	owner: CellOwner;
 }
 

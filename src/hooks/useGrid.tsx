@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import type { CellOwner } from '@interfaces/cellOwner.ts';
 
-interface GridContextType {
+export interface GridContextType {
 	append: (colIndex: number, owner: CellOwner) => void;
 	grid: Readonly<CellOwner[][]>;
 	ended: boolean;

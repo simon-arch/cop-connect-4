@@ -1,12 +1,12 @@
 import style from './Select.module.css';
 import { ErrorMessage, Field } from 'formik';
 
-type SelectOption = {
+export type SelectOption = {
 	value: string;
 	label: string;
 };
 
-interface SelectProps {
+export interface SelectProps {
 	label: string;
 	name: string;
 	options: SelectOption[];

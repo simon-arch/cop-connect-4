@@ -4,67 +4,13 @@ import { GridContext } from '@hooks/useGrid.tsx';
 import { useGameSettingsStore } from '@stores/useGameSettingsStore.tsx';
 import { usePlayerStore } from '@stores/usePlayerStore.tsx';
 import { useUserDataStore } from '@stores/useUserDataStore.tsx';
+import { findWinner } from '@components/providers/GridProvider/FindWinner.tsx';
+import { getEmptyGrid } from '@components/providers/GridProvider/GetEmptyGrid.tsx';
 
-interface GridProviderProps {
+export interface GridProviderProps {
 	children: ReactNode;
 	onEnd: (winner: CellOwner) => void;
 }
-
-const getEmptyGrid = (cols: number): CellOwner[][] =>
-	Array.from({ length: cols }, () => []);
-
-const getCell = (
-	array: CellOwner[][],
-	col: number,
-	row: number,
-	cols: number,
-	rows: number,
-): CellOwner => {
-	if (col < 0 || col >= cols) return null;
-	if (row < 0 || row >= rows) return null;
-	if (!array[col]) return null;
-	return array[col][row] || null;
-};
-
-const findWinner = (
-	grid: CellOwner[][],
-	rows: number,
-	cols: number,
-	winSize: number,
-) => {
-	const directions = [
-		//  [x, y]
-		[0, 1],
-		[1, 0],
-		[1, 1],
-		[1, -1],
-	];
-
-	for (let col = 0; col < cols; col++) {
-		for (let row = 0; row < rows; row++) {
-			const cell = getCell(grid, col, row, cols, rows);
-			if (!cell) continue;
-
-			for (const [dx, dy] of directions) {
-				let count = 1;
-				let x = col + dx;
-				let y = row + dy;
-
-				while (
-					getCell(grid, x, y, cols, rows) === cell &&
-					count < winSize
-				) {
-					count++;
-					x += dx;
-					y += dy;
-				}
-				if (count === winSize) return cell;
-			}
-		}
-	}
-
-	return grid.every((col) => col.length === rows) ? null : undefined;
-};
 
 export const GridProvider = ({ children, onEnd }: GridProviderProps) => {
 	const { settings } = useGameSettingsStore();

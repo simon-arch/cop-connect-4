@@ -1,7 +1,7 @@
 import style from './Input.module.css';
 import { ErrorMessage, Field } from 'formik';
 
-interface InputProps {
+export interface InputProps {
 	label: string;
 	name: string;
 	type: string;

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useTimer } from '@hooks/useTimer.tsx';
 import { usePlayerStore } from '@stores/usePlayerStore.tsx';
-import { GridProvider } from '@components/providers/GridProvider.tsx';
+import { GridProvider } from '@components/providers/GridProvider/GridProvider.tsx';
 import { Button } from '@components/ui/Button/Button.tsx';
 import { Title } from '@components/ui/Title/Title.tsx';
 import { Board } from '@components/game/Board/Board.tsx';
