@@ -15,4 +15,5 @@ export default defineConfig({
 			'@validation': path.resolve(__dirname, 'src/validation'),
 		},
 	},
+	base: '/cop-connect-4/'
 });
