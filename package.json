@@ -1,6 +1,5 @@
 {
 	"name": "cop-connect-four",
-	"private": true,
 	"license": "Apache-2.0",
 	"author": "Artem Vashchenko",
 	"version": "1.0.0",
