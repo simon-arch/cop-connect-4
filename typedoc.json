@@ -4,5 +4,11 @@
 	"tsconfig": "tsconfig.json",
 	"readme": "README.md",
 	"mergeModulesRenameDefaults": true,
-	"mergeModulesMergeMode": "project"
+	"mergeModulesMergeMode": "project",
+	"externalSymbolLinkMappings": {
+		"@types/react": {
+			"React.HTMLAttributes": "#",
+			"React.ButtonHTMLAttributes": "#"
+		}
+	}
 }

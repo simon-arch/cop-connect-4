@@ -8,13 +8,14 @@ A web-based [**Connect 4**](https://en.wikipedia.org/wiki/Connect_Four) game bui
 - [Rules](#rules)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Documentation](#documentation)
 - [Available Scripts](#available-scripts)
 - [Author](#author)
 - [Licensing](#licensing)
 
 ## Demo
 
-Play the game live in your browser: https://simon-arch.github.io/cop-connect-4
+Play the game live in your browser: [**Connect 4**](https://simon-arch.github.io/cop-connect-4)
 
 ## Features
 
@@ -61,6 +62,9 @@ Run the development server:
 ```npm run dev```
 
 This will start the app locally in your browser.
+
+## Documentation
+Full documentation is available either through the generated TypeDoc files or [live in the browser](https://simon-arch.github.io/cop-connect-4/docs).
 
 ## Available Scripts
 - `npm run build` - Builds the app for production. The output will be in the `/dist` folder.
