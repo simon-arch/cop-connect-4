@@ -10,7 +10,7 @@ export default defineConfig({
 			'@utils': path.resolve(__dirname, 'src/utils'),
 			'@hooks': path.resolve(__dirname, 'src/hooks'),
 			'@stores': path.resolve(__dirname, 'src/stores'),
-			'@interfaces': path.resolve(__dirname, 'src/interfaces'),
+			'@contracts': path.resolve(__dirname, 'src/contracts'),
 			'@components': path.resolve(__dirname, 'src/components'),
 			'@validation': path.resolve(__dirname, 'src/validation'),
 		},

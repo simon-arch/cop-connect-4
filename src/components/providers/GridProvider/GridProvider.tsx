@@ -1,5 +1,5 @@
 import { type ReactNode, useCallback, useMemo, useState } from 'react';
-import type { CellOwner } from '@interfaces/cellOwner.ts';
+import type { CellOwner } from '@contracts/cellOwner.ts';
 import { GridContext } from '@hooks/useGrid.tsx';
 import { useGameSettingsStore } from '@stores/useGameSettingsStore.tsx';
 import { usePlayerStore } from '@stores/usePlayerStore.tsx';
@@ -7,11 +7,27 @@ import { useUserDataStore } from '@stores/useUserDataStore.tsx';
 import { findWinner } from '@components/providers/GridProvider/FindWinner.tsx';
 import { getEmptyGrid } from '@components/providers/GridProvider/GetEmptyGrid.tsx';
 
+/**
+ * Props for the {@link GridProvider} component.
+ * @category Interfaces
+ * */
 export interface GridProviderProps {
+	/** The child components that require access to grid state. */
 	children: ReactNode;
+
+	/** Callback triggered when a winner is identified or the game ends in a draw. */
 	onEnd: (winner: CellOwner) => void;
 }
 
+/**
+ * The state provider that orchestrates the Connect 4 game logic.
+ * @remarks This component:
+ * 1. Holds the 2D grid array and the game-over status.
+ * 2. Ensures discs are only dropped in valid, non-full columns.
+ * 3. Checks for win conditions after every move.
+ * 4. Calculates game duration and updates the {@link UserData} store.
+ * @category Providers
+ */
 export const GridProvider = ({ children, onEnd }: GridProviderProps) => {
 	const { settings } = useGameSettingsStore();
 	const { nextPlayer } = usePlayerStore();

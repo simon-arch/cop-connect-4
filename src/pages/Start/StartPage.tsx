@@ -5,7 +5,7 @@ import { Input } from '@components/ui/Formik/Input/Input.tsx';
 import { Select } from '@components/ui/Formik/Select/Select.tsx';
 import { Form, Formik, type FormikErrors } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import type { GameSettings } from '@interfaces/gameSettings.ts';
+import type { GameSettings } from '@contracts/gameSettings.ts';
 import { settingsValidationSchema } from '@validation/settingsValidationSchema.ts';
 import { useGameSettingsStore } from '@stores/useGameSettingsStore.tsx';
 

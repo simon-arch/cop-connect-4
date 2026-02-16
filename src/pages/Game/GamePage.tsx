@@ -8,7 +8,7 @@ import { Button } from '@components/ui/Button/Button.tsx';
 import { Title } from '@components/ui/Title/Title.tsx';
 import { Board } from '@components/game/Board/Board.tsx';
 import { Modal } from '@components/ui/Modal/Modal.tsx';
-import type { CellOwner } from '@interfaces/cellOwner.ts';
+import type { CellOwner } from '@contracts/cellOwner.ts';
 import { secondsToTime } from '@utils/secondsToTime';
 import { padTime } from '@utils/padTime.ts';
 

@@ -63,7 +63,8 @@ Run the development server:
 This will start the app locally in your browser.
 
 ## Available Scripts
-- `npm run build` - Builds the app for production. The output will be in the `dist` folder.
+- `npm run build` - Builds the app for production. The output will be in the `/dist` folder.
+- `npm run docs` - Generates the project documentation using TypeDoc. The output will be in the `/docs` folder.
 - `npm run preview` - Locally preview the production build.
 - `npm run lint` - Run ESLint to check for code quality issues.
 

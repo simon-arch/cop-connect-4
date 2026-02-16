@@ -1,0 +1,8 @@
+{
+	"exclude": ["**/pages/**", "**/validation/**"],
+	"plugin": ["typedoc-plugin-merge-modules"],
+	"tsconfig": "tsconfig.json",
+	"readme": "README.md",
+	"mergeModulesRenameDefaults": true,
+	"mergeModulesMergeMode": "project"
+}

@@ -5,6 +5,9 @@ import { ResultsPage } from './pages/Results/ResultsPage.tsx';
 import { ScorePage } from './pages/Score/ScorePage.tsx';
 import { Route, Routes } from 'react-router-dom';
 
+/**
+ * @ignore
+ */
 function App() {
 	return (
 		<Routes>
