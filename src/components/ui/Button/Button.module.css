@@ -7,7 +7,7 @@
 
 	cursor: pointer;
 
-	height: 2rem;
+	min-height: 2rem;
 	margin: 0.5rem 0;
 	padding: 0 0.875rem;
 
