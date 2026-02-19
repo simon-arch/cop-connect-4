@@ -1,14 +1,45 @@
+import '../../../index.css';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
-import "../../../index.css";
+
+/**
+ * A reusable, styled button component that wraps the native HTML `<button>`.
+ *
+ * The component is fully compatible with standard HTML button attributes,
+ * making it a drop-in replacement.
+ *
+ * Uses baked in CSS modules to provide consistent styling across the app.
+ *
+ * #### Remarks
+ * Supports all native button props like `onClick`, `disabled`, `type`, etc.
+ *
+ * #### Example
+ * ```tsx
+ * <Button onClick={() => console.log('Clicked!')} disabled={loading}>
+ *   Play Again
+ * </Button>
+ * ```
+ */
 
 const meta: Meta<typeof Button> = {
 	title: 'UI/Button',
 	component: Button,
 	argTypes: {
-		children: { control: 'text', description: 'Button label text' },
-		disabled: { control: 'boolean', description: 'Disables the button' },
-		onClick: { action: 'clicked' },
+		children: {
+			control: 'text',
+			description:
+				'The text displayed inside the button.'
+		},
+		disabled: {
+			control: 'boolean',
+			description:
+				'When true, the button is not clickable and appears visually disabled.',
+		},
+		onClick: {
+			action: 'clicked',
+			description:
+				'Function that gets called when the button is clicked.',
+		},
 	},
 	tags: ['autodocs']
 };

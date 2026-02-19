@@ -14,8 +14,6 @@ export interface ModalProps {
 	onClose: () => void;
 }
 
-const root = document.getElementById('portal-root');
-
 /**
  * A layout component that renders content in a portal overlay.
  * @example
@@ -28,6 +26,7 @@ const root = document.getElementById('portal-root');
  * @category UI
  */
 export const Modal = ({ children, onClose }: ModalProps): ReactPortal | null => {
+	const root = document.getElementById('portal-root');
 	if (!root) return null;
 
 	return createPortal(
