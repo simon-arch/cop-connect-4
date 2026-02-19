@@ -80,7 +80,9 @@ GitHub: https://github.com/simon-arch
 ## Licensing
 The Linux Foundation and its contributors license the SPDX standard under the terms of [the Creative Commons Attribution License 3.0 Unported (SPDX: "CC-BY-3.0")](http://spdx.org/licenses/CC-BY-3.0).  "SPDX" is a United States federally registered trademark of the Linux Foundation.
 
-This project uses [LightningCSS](https://github.com/parcel-bundler/lightningcss) under the [Mozilla Public License 2.0](https://github.com/parcel-bundler/lightningcss/blob/master/LICENSE). The LightningCSS files included in this repository are unmodified.
+This project uses [LightningCSS](https://github.com/parcel-bundler/lightningcss) under the [Mozilla Public License 2.0](https://github.com/parcel-bundler/lightningcss/blob/master/LICENSE). The LightningCSS files are unmodified, not included in this repository, and are installed separately using the appropriate package manager.
+
+Original game concept "Connect 4" is a registered trademark of its respective owner. The Author does not claim ownership of "Connect 4".
 
 The author of this repository license their work under the terms of the [Apache 2.0 License](LICENSE).
 
