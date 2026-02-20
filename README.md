@@ -1,3 +1,4 @@
+[![License: Apache License 2.0](https://img.shields.io/badge/license-Apache%20License%202.0-blue)](https://opensource.org/licenses/Apache-2.0)
 # <img alt="Connect-4 Disc" src="public/images/disc.png" height=23> Connect 4
 A web-based [**Connect 4**](https://en.wikipedia.org/wiki/Connect_Four) game built with [**React**](https://github.com/facebook/react), [**TypeScript**](https://www.typescriptlang.org), and [**Vite**](https://vite.dev).
 
@@ -84,5 +85,5 @@ This project uses [LightningCSS](https://github.com/parcel-bundler/lightningcss)
 
 Original game concept "Connect 4" is a registered trademark of its respective owner. The Author does not claim ownership of "Connect 4".
 
-The author of this repository license their work under the terms of the [Apache 2.0 License](LICENSE).
+The author of this repository license their work under the terms of the [Apache License 2.0](LICENSE).
 
