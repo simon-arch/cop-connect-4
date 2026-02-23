@@ -12,7 +12,8 @@ export default defineConfig({
       '@stores': path.resolve(__dirname, 'src/stores'),
       '@contracts': path.resolve(__dirname, 'src/contracts'),
       '@components': path.resolve(__dirname, 'src/components'),
-      '@validation': path.resolve(__dirname, 'src/validation')
+      '@validation': path.resolve(__dirname, 'src/validation'),
+	  '@src': path.resolve(__dirname, 'src/'),
     }
   },
   base: '/cop-connect-4/'
