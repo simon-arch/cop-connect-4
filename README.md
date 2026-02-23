@@ -70,6 +70,7 @@ Full documentation is available either through the generated TypeDoc files or [l
 ## Available Scripts
 - `npm run build` - Builds the app for production. The output will be in the `/dist` folder.
 - `npm run docs` - Generates the project documentation using TypeDoc. The output will be in the `/docs` folder.
+- `npm run storybook` - Generates and runs the project Storybook.
 - `npm run preview` - Locally preview the production build.
 - `npm run lint` - Run ESLint to check for code quality issues.
 

@@ -45,7 +45,7 @@ export const GamePage = () => {
 			</GridProvider>
 			<Button onClick={onBack}>Back to Start</Button>
 			{modalOpen && (
-				<Modal onClose={() => setModalOpen(false)}>
+				<Modal onClose={() => setModalOpen(false)} showClose={true}>
 					<div className={style.ModalContent}>
 						<div>End of the game. {title}!</div>
 						<div className={style.ModalButtons}>

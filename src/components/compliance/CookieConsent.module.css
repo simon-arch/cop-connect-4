@@ -1,0 +1,15 @@
+.Center {
+    text-align: center;
+}
+
+.Buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.Row {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}

@@ -34,6 +34,14 @@ const meta: Meta<typeof Modal> = {
 				category: 'Props',
 			},
 		},
+		showClose: {
+			description: 'Whether the close button is visible on the modal.',
+			table: {
+				category: 'Props',
+				type: { summary: 'boolean' },
+				defaultValue: { summary: 'false' },
+			},
+		},
 		children: {
 			description: 'Content rendered inside the modal window.',
 			table: {
@@ -140,7 +148,7 @@ const Wrapper = (args: ModalStoryProps) => {
 		<>
 			<Button onClick={() => setIsOpen(true)}>{args.openText}</Button>
 			{isOpen && (
-				<Modal onClose={handleClose}>
+				<Modal onClose={handleClose} showClose={args.showClose}>
 					<h2>{args.heading}</h2>
 					<p>{args.message}</p>
 					<p>{args.children}</p>
@@ -169,6 +177,7 @@ export const Default: Story = {
 		message: 'Player 1 Wins!',
 		openText: 'Show Results',
 		confirmText: 'Close',
+		showClose: true
 	},
 	parameters: {
 		docs: {
@@ -188,7 +197,8 @@ export const Deletion: Story = {
 		openText: 'Delete Account',
 		confirmText: 'Yes. Delete',
 		cancelText: 'No. Cancel',
-		children: 'This action cannot be undone!'
+		children: 'This action cannot be undone!',
+		showClose: false
 	},
 	parameters: {
 		docs: {

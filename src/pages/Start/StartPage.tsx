@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import type { GameSettings } from '@contracts/gameSettings.ts';
 import { settingsValidationSchema } from '@validation/settingsValidationSchema.ts';
 import { useGameSettingsStore } from '@stores/useGameSettingsStore.tsx';
+import { useState } from 'react';
+import { CookieConsent, type CookieFormValues } from '@components/compliance/CookieConsent.tsx';
 
 export const StartPage = () => {
 	const navigate = useNavigate();
@@ -19,6 +21,10 @@ export const StartPage = () => {
 		setSettings(settings);
 		navigate('/game');
 	};
+
+	const [consent, setConsent] = useState<CookieFormValues | null>(null);
+	if (consent === null)
+		return <CookieConsent onChange={setConsent} />;
 
 	return (
 		<div className={style.Page}>
@@ -85,6 +91,35 @@ export const StartPage = () => {
 					<hr />
 					Use strategy to block opponents while aiming to be the first
 					player to get {settings.winSize} in a row to win.
+					<hr />
+					Given consents:
+					<ol>
+						<li>EULA accepted: {consent?.eula ? 'Yes' : 'No'}</li>
+						<li>
+							Privacy policy accepted:{' '}
+							{consent?.privacy ? 'Yes' : 'No'}
+						</li>
+						<li>
+							Personal data processing:{' '}
+							{consent?.personal ? 'Yes' : 'No'}
+						</li>
+						<li>Age confirmed: {consent?.age ? 'Yes' : 'No'}</li>
+						<li>
+							Marketing consent:{' '}
+							{consent?.marketing ? 'Yes' : 'No'}
+						</li>
+						<li>
+							Analytics consent:{' '}
+							{consent?.analytics ? 'Yes' : 'No'}
+						</li>
+						<li>
+							Consent recorded at:
+							<br />
+							{consent?.consentedAt
+								? new Date(consent.consentedAt).toLocaleString()
+								: 'Not recorded'}
+						</li>
+					</ol>
 				</span>
 			</div>
 		</div>

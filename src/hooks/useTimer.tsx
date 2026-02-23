@@ -18,7 +18,7 @@ import { useState, useEffect, useRef } from 'react';
  */
 export const useTimer = () => {
 	const [seconds, setSeconds] = useState(0);
-	const intervalRef = useRef<number | null>(null);
+	const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
 	useEffect(() => {
 		startTimer();

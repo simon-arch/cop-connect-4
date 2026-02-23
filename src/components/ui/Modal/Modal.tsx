@@ -12,6 +12,9 @@ export interface ModalProps {
 
 	/** Callback function triggered when the close button is clicked. */
 	onClose: () => void;
+
+	/** Determines whether the 'x' is visible on the modal. */
+	showClose: boolean;
 }
 
 /**
@@ -25,16 +28,18 @@ export interface ModalProps {
  * ```
  * @category UI
  */
-export const Modal = ({ children, onClose }: ModalProps): ReactPortal | null => {
+export const Modal = ({ children, onClose, showClose }: ModalProps): ReactPortal | null => {
 	const root = document.getElementById('portal-root');
 	if (!root) return null;
 
 	return createPortal(
 		<div className={style.Overlay}>
 			<div className={style.Content} onClick={(e) => e.stopPropagation()}>
-				<button className={style.Button} onClick={onClose}>
-					✖
-				</button>
+				{ showClose &&
+					<button className={style.Button} onClick={onClose}>
+						✖
+					</button>
+				}
 				{children}
 			</div>
 		</div>,

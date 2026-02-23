@@ -49,8 +49,8 @@
 	margin: 0;
 	cursor: pointer;
 
-	border: 1px solid var(--bg-4);
-	background-color: var(--bg-3);
+	border: 1px solid var(--bg-1);
+	background-color: var(--bg-4);
 	transition:
 		background-color 0.25s,
 		border-color 0.25s;
@@ -82,4 +82,8 @@
 .Input input[type='checkbox']:focus {
 	outline: none;
 	border-color: var(--accent-3);
+}
+
+.Input input[type='checkbox']:disabled {
+	cursor: not-allowed;
 }

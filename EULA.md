@@ -1,7 +1,7 @@
 # END-USER LICENSE AGREEMENT
 
 This End-User License Agreement (EULA) is a legal agreement between you (either as an individual or on behalf of an entity) and Artem Vashchenko (the "Developer") regarding your use of Connect 4 (the "Game"). By accessing or playing the Game, you agree to all terms of this EULA. This EULA shall be governed by the laws of Ukraine, without regard to conflict of law principles.
-IF YOU DO NOT AGREE TO ALL OF THE TERMS OF THIS EULA, DO NOT USE OR ACCESS THE GAME.
+IF YOU DO NOT AGREE TO ALL THE TERMS OF THIS EULA, DO NOT USE OR ACCESS THE GAME.
 
 ### Summary
 
@@ -24,14 +24,6 @@ This EULA entitles you to access and play as many sessions of the Game as you wa
 1. You may not use the Game for unlawful purposes.
 2. Redistribution, including hosting or sharing of the Game, must comply with applicable open-source licenses.
 3. You may not remove or alter any copyright, or license information.
-
-### Privacy Notice
-
-You acknowledge that the Game does not collect, transmit, or share any personal information. Any nickname or other data you enter is stored exclusively in your browser's local storage. This information remains on your device and is not accessible to the developer or any third party.
-
-The Game runs entirely in your browser and does not communicate with any external servers. You may delete any stored nicknames at any time by clearing your browser's local storage.
-
-By using the Game, you understand and agree that all data you enter is stored locally, and the developer assumes no responsibility for data lost due to browser clearing, device changes, or your actions.
 
 ### Open-Source Notices
 
