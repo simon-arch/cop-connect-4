@@ -20,6 +20,14 @@ You can delete this data at any time by clearing your browser’s local storage.
 
 The Developer cannot recover lost data if you clear your browser cache or switch devices.
 
+## Cookies
+
+The Game uses cookies to save your user consent preferences.
+
+No personal information is collected or shared via cookies.
+
+You can manage or delete these cookies through your browser settings at any time.
+
 ## Third-Party Components
 
 The Game may include third-party open-source libraries.

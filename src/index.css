@@ -31,3 +31,7 @@
 	--bg-4: oklch(23% 0 0);
 	--bg-5: oklch(19% 0 0);
 }
+
+a {
+	color: var(--accent-1);
+}

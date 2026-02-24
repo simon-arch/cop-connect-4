@@ -17,7 +17,7 @@ By accessing, playing, or copying the Game, you accept and agree to be bound by 
 
 ### The License
 
-This EULA entitles you to access and play as many sessions of the Game as you want, and use the Game for any lawful purpose consistent with this EULA. Your license to use the Game is expressly conditioned upon your agreement to all of the terms of this EULA. The Game is licensed, not sold. The Developer reserves all other rights not granted by this EULA. This license is revocable at the Developer's discretion if you violate any term of this EULA.
+This EULA entitles you to access and play as many sessions of the Game as you want, and use the Game for any lawful purpose consistent with this EULA. Your license to use the Game is expressly conditioned upon your agreement to all the terms of this EULA. The Game is licensed, not sold. The Developer reserves all other rights not granted by this EULA. This license is revocable at the Developer's discretion if you violate any term of this EULA.
 
 ### The Restrictions
 

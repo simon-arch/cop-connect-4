@@ -105,11 +105,11 @@ export const StartPage = () => {
 						</li>
 						<li>Age confirmed: {consent?.age ? 'Yes' : 'No'}</li>
 						<li>
-							Marketing consent:{' '}
+							Marketing consent (not implemented):{' '}
 							{consent?.marketing ? 'Yes' : 'No'}
 						</li>
 						<li>
-							Analytics consent:{' '}
+							Analytics consent (not implemented):{' '}
 							{consent?.analytics ? 'Yes' : 'No'}
 						</li>
 						<li>
