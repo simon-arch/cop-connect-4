@@ -5,6 +5,7 @@ import { Input, type InputProps } from './Input';
 import { Button } from '@components/ui/Button/Button.tsx';
 
 /**
+ * @ignore
  * A reusable, Formik-wrapped input field component.
  *
  * The component standardizes the layout and behavior of form inputs.
@@ -46,7 +47,9 @@ const meta: Meta<typeof Input> = {
 	tags: ['autodocs'],
 };
 
-
+/**
+ * @ignore
+ */
 export default meta;
 
 type Story = StoryObj<InputProps>;
@@ -57,6 +60,9 @@ const FormWrapper = (args: InputProps) => (
 	</Formik>
 );
 
+/**
+ * @ignore
+ */
 export const Default: Story = {
 	render: (args) => FormWrapper(args),
 	parameters: {
@@ -74,6 +80,9 @@ Default.args = {
 	type: 'text',
 };
 
+/**
+ * @ignore
+ */
 export const Password: Story = {
 	render: (args) => FormWrapper(args),
 	parameters: {
@@ -91,6 +100,9 @@ Password.args = {
 	type: 'password',
 };
 
+/**
+ * @ignore
+ */
 export const Email: Story = {
 	render: (args) => FormWrapper(args),
 	parameters: {
@@ -126,6 +138,9 @@ const validate = (values: typeof initialValues) => {
 	return errors;
 };
 
+/**
+ * @ignore
+ */
 export const InputForm: Story = {
 	render: () => (
 		<Formik

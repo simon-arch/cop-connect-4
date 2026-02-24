@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@components/ui/Button/Button.tsx';
 
 /**
+ * @ignore
  * A reusable portal-based modal component.
  *
  * The Modal renders its children into a DOM node outside
@@ -102,7 +103,11 @@ const meta: Meta<typeof Modal> = {
 	},
 };
 
+/**
+ * @ignore
+ */
 export default meta;
+
 type ModalStoryProps = ModalProps & {
 	heading?: string;
 	message?: string;
@@ -170,6 +175,9 @@ const Wrapper = (args: ModalStoryProps) => {
 	);
 };
 
+/**
+ * @ignore
+ */
 export const Default: Story = {
 	render: (args) => <Wrapper {...args} />,
 	args: {
@@ -177,7 +185,7 @@ export const Default: Story = {
 		message: 'Player 1 Wins!',
 		openText: 'Show Results',
 		confirmText: 'Close',
-		showClose: true
+		showClose: true,
 	},
 	parameters: {
 		docs: {
@@ -188,6 +196,9 @@ export const Default: Story = {
 	},
 };
 
+/**
+ * @ignore
+ */
 export const Deletion: Story = {
 	render: (args) => <Wrapper {...args} />,
 	args: {

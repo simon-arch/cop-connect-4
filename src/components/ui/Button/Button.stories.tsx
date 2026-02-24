@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
 
 /**
+ * @ignore
  * A reusable, styled button component that wraps the native HTML `<button>`.
  *
  * The component is fully compatible with standard HTML button attributes,
@@ -27,8 +28,7 @@ const meta: Meta<typeof Button> = {
 	argTypes: {
 		children: {
 			control: 'text',
-			description:
-				'The text displayed inside the button.'
+			description: 'The text displayed inside the button.',
 		},
 		disabled: {
 			control: 'boolean',
@@ -41,13 +41,19 @@ const meta: Meta<typeof Button> = {
 				'Function that gets called when the button is clicked.',
 		},
 	},
-	tags: ['autodocs']
+	tags: ['autodocs'],
 };
 
+/**
+ * @ignore
+ */
 export default meta;
 
 type Story = StoryObj<typeof Button>;
 
+/**
+ * @ignore
+ */
 export const Default: Story = {
 	args: {
 		children: 'Click Me',
@@ -62,6 +68,9 @@ export const Default: Story = {
 	},
 };
 
+/**
+ * @ignore
+ */
 export const Disabled: Story = {
 	args: {
 		children: 'Cannot Click',
@@ -76,6 +85,9 @@ export const Disabled: Story = {
 	},
 };
 
+/**
+ * @ignore
+ */
 export const LongText: Story = {
 	args: {
 		children:
