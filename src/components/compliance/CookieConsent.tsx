@@ -90,7 +90,10 @@ export const CookieConsent = ({ onChange }: CookieConsentProps) => {
 	};
 
 	const handleSubmit = (values: CookieFormValues) => {
-		finalizeConsent(values);
+		finalizeConsent({
+			...values,
+			consentedAt: new Date().toISOString()}
+		);
 	};
 
 	const acceptAll = () => {
